@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,
+        li {
+            list-style: none;
+        }
+
+        div {
+            border: 2px solid red;
+            height: 300px;
+        }
+
+        div section {
+            padding: 10px;
+        }
+
+        div section:nth-child(1) {
+            background-color: green;
+        }
+
+        div section:nth-child(2) {
+            background-color: blue;
+            color: #fff;
+        }
+
+        div section:nth-child(3) {
+            background-color: yellow;
+        }
+
+        code ul ul li {
+            font-weight: 800;
+        }
+
+        [type="number"] {
+            width: 50px;
+        }
+
+        code {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    启用动态盒子：
+    <input type="checkbox" onchange="display(this,'flex')">启用动态盒子<br />
+    子盒子排版方向：
+    <input type="radio" name="flexDirection" onchange="flexDirection(this,'row')">水平排列
+    <input type="radio" name="flexDirection" onchange="flexDirection(this,'column')">垂直排列
+    <input type="radio" name="flexDirection" onchange="flexDirection(this,'row-reverse')">反向水平排列
+    <input type="radio" name="flexDirection" onchange="flexDirection(this,'column-reverse')">反向垂直排列<br />
+    子盒子对齐方式：
+    <input type="radio" name="justify" onchange="justify(this,'start')">左（上）对齐
+    <input type="radio" name="justify" onchange="justify(this,'center')">居中对齐
+    <input type="radio" name="justify" onchange="justify(this,'flex-end')">右（下）对齐
+    <input type="radio" name="justify" onchange="justify(this,'space-between')">两端对齐
+    <input type="radio" name="justify" onchange="justify(this,'space-around')">环绕对齐<br />
+    绿盒子：
+    <input type="radio" name="alginSelf0" onchange="alginSelf(this,0,'auto')">默认
+    <input type="radio" name="alginSelf0" onchange="alginSelf(this,0,'flex-start')">居左（上）
+    <input type="radio" name="alginSelf0" onchange="alginSelf(this,0,'center')">居中
+    <input type="radio" name="alginSelf0" onchange="alginSelf(this,0,'flex-end')">居右（下）<br />
+    蓝盒子：
+    <input type="radio" name="alginSelf1" onchange="alginSelf(this,1,'auto')">默认
+    <input type="radio" name="alginSelf1" onchange="alginSelf(this,1,'flex-start')">居左（上）
+    <input type="radio" name="alginSelf1" onchange="alginSelf(this,1,'center')">居中
+    <input type="radio" name="alginSelf1" onchange="alginSelf(this,1,'flex-end')">居右（下）<br />
+    红盒子：
+    <input type="radio" name="alginSelf2" onchange="alginSelf(this,2,'auto')">默认
+    <input type="radio" name="alginSelf2" onchange="alginSelf(this,2,'flex-start')">居左（上）
+    <input type="radio" name="alginSelf2" onchange="alginSelf(this,2,'center')">居中
+    <input type="radio" name="alginSelf2" onchange="alginSelf(this,2,'flex-end')">居右（下）<br />
+    所占份数：
+    绿：<input type="number" value="" min="0" onchange="flex(0,this.value)">
+    蓝：<input type="number" value="" min="0" onchange="flex(1,this.value)">
+    黄：<input type="number" value="" min="0" onchange="flex(2,this.value)">
+    <hr />
+    <code>
+        <main>
+            <h1>CSS样式：</h1>
+        <span>&lt;style&gt;</span>
+        <ul id="div">
+            <li>div{</li>
+            <ul>
+                <li id="display"></li>
+                <li id="flexDirection"></li>
+                <li id="justify"></li>
+            </ul>
+            <li>}</li>
+            
+            <li>div section:nth-child(1){</li>
+                <ul>
+                    <li id="alignSelf0"></li>
+                    <li id="flex0"></li>
+                </ul>
+            <li>}</li>
+            
+            <li>div section:nth-child(2){</li>
+                <ul>
+                    <li id="alignSelf1"></li>
+                    <li id="flex1"></li>
+                </ul>
+            <li>}</li>
+            
+            <li>div section:nth-child(3){</li>
+                <ul>
+                    <li id="alignSelf2"></li>
+                    <li id="flex2"></li>
+                </ul>
+            <li>}</li>
+        </ul>
+        <span>&lt;/style&gt;</span>
+    </main>
+        <pre>
+            <h1>HTML结构：</h1>
+&lt;div>
+    &lt;section>section1&lt;/section&gt;
+    &lt;section>section2&lt;/section&gt;
+    &lt;section>section3&lt;/section&gt;
+&lt;/div>
+        </pre>
+    </code>
+    <hr />
+    <div>
+        <section>section1</section>
+        <section>section2</section>
+        <section>section3</section>
+    </div>
+    <script>
+        let style = document.getElementsByTagName('div')[0].style;
+        function display(t, attr) {
+            style.display = t.checked ? attr : 'block';
+            document.getElementById('display').textContent = "display:" + (t.checked ? attr : 'block') + ";";
+        }
+        function flexDirection(t, attr) {
+            style.flexDirection = t.checked ? attr : 'unset';
+            document.getElementById('flexDirection').textContent = "flex-direction:" + (t.checked ? attr : '') + ";";
+        }
+        function justify(t, attr) {
+            style.justifyContent = t.checked ? attr : 'unset';
+            document.getElementById('justify').textContent = "justify-content:" + (t.checked ? attr : '') + ";";
+        }
+        function alginSelf(t, i, attr) {
+            document.getElementsByTagName('section')[i].style.alignSelf = t.checked ? attr : 'unset';
+            document.getElementById('alignSelf' + i).textContent = "algin-self:" + (t.checked ? attr : '') + ";";
+        }
+        function flex(i, attr) {
+            document.getElementsByTagName('section')[i].style.flex = attr;
+            document.getElementById('flex' + i).textContent = 'flex:' + attr + ";";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+            background-color: red;
+        }
+        section{
+            border-width: 5px;
+            border-color: #00f;
+            border-style:solid;
+            background-color: #0ff;
+            padding:10px;
+            margin:10px;
+        }
+        section span{border:1px solid #000;background-color: #fff;}
+        [type="number"]{width: 50px;}
+    </style>
+</head>
+
+<body>
+    <span style="color:#f00">外边距</span>：<input type="number" min="0" onchange="margin(this.value)" value="10">
+    <span style="color:#00f">边框</span>：<input type="number" min="0" onchange="border(this.value)" value="5">
+    <span style="color:#0ff">内边距</span>：<input type="number" min="0" onchange="padding(this.value)" value="10">
+    <hr/>
+    <div>
+        <section><span>文本</span></section>
+    </div>
+
+    <script>
+        let style = document.getElementsByTagName('section')[0].style;
+
+        function border(val){
+            style.borderWidth = val+"px";
+        }
+        function padding(val){
+            style.padding = val+"px";
+        }
+        function margin(val){
+            style.margin = val+"px";
+        }
+    </script>
+</body>
+
+</html>
