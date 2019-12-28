@@ -1,0 +1,4 @@
+header>nav ul>li {border:1px solid green;transform: skew(20deg);}
+header>nav ul>li:hover{background-color: green;}
+header>nav ul>li section{transform: skew(-20deg);}
+header>nav ul>li ol{transform: skew(-20deg) translateX(-31px);}

@@ -1,0 +1,30 @@
+{
+  "id": "1573668",
+  "name": "随堂案例",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1827990",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e6b8",
+      "unicode_decimal": 59064
+    },
+    {
+      "icon_id": "3952155",
+      "name": "定位",
+      "font_class": "location",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "10130175",
+      "name": "长箭头",
+      "font_class": "top-arrow",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    }
+  ]
+}

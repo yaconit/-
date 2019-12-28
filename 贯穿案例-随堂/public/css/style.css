@@ -1,0 +1,14 @@
+@charset 'utf-8';
+
+/* 清除 HTML 标签的默认样式 */
+*{margin:0;padding: 0;}
+ul,li,ol,dl,dd,dt{list-style: none;}
+a{text-decoration: none;}
+img{border:none;}
+
+/* 通用类 */
+.layout{width: 1200px;margin: 0 auto;}
+.clear{clear: both;}
+.d-flex{display: flex;}
+.justify-between{justify-content: space-between;}
+.justify-around{justify-content: space-around;}

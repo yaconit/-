@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./public/css/swiper.min.css">
+    <style>
+        *{padding: 0;margin: 0;}
+        ul,li{list-style: none;}
+        .swiper .swiper-container{position: absolute;width: 100%;}
+        .swiper nav{width: 1200px;margin: 0 auto;position: relative;z-index: 2;}
+    </style>
+</head>
+<body>
+    <div class="swiper">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img data-src="holder.js/100px425?random=yes&text=1" alt=""></div>
+                <div class="swiper-slide"><img data-src="holder.js/100px425?random=yes&text=2" alt=""></div>
+                <div class="swiper-slide"><img data-src="holder.js/100px425?random=yes&text=3" alt=""></div>
+                <div class="swiper-slide"><img data-src="holder.js/100px425?random=yes&text=4" alt=""></div>
+                <div class="swiper-slide"><img data-src="holder.js/100px425?random=yes&text=5" alt=""></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">软件工程师<span>></span></a></li>
+                <li><a href="#">软件工程师<span>></span></a></li>
+                <li><a href="#">软件工程师<span>></span></a></li>
+                <li><a href="#">软件工程师<span>></span></a></li>
+                <li><a href="#">软件工程师<span>></span></a></li>
+                <li><a href="#">软件工程师<span>></span></a></li>
+                <li><a href="#">软件工程师<span>></span></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <script src="./public/js/holder.min.js"></script>
+    <script src="./public/js/swiper.min.js"></script>
+    <script>
+         new Swiper('.swiper-container', {
+            autoplay: true,//可选选项，自动滑动
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        })
+    </script>
+</body>
+</html>
