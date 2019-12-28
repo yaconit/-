@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .f{
+            height: 300px;
+            border:1px solid #000;
+            display: flex; /* 使盒子变成动态盒子 */
+            flex-direction: row; /* 改变子盒子的布局方向 column 列 row 行 */
+            justify-content: flex-end; /* 改变子盒子的排版方式 */
+        }
+        .f :nth-child(1){background-color: #00f;}
+        .f :nth-child(2){background-color: #0ff;}
+        .f :nth-child(3){background-color: green}
+        .f :nth-child(4){background-color: #ff0;}
+    </style>
+</head>
+<body>
+    <div class="f">
+        <div>第一个盒子</div>
+        <div>第二个盒子</div>
+        <div>第三个盒子</div>
+        <div>第四个盒子</div>
+    </div>
+</body>
+</html>

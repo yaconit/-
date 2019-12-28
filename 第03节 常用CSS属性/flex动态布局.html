@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .d-f {
+            display: flex;
+        }
+
+        /*将盒子作为动态盒子*/
+        .f-r {
+            flex-direction: row;
+        }
+
+        /*子盒子的布局方向为水平的*/
+        .f-c {
+            flex-direction: column;
+        }
+
+        /*子盒子的布局方向为垂直的*/
+        .f-rr {
+            flex-direction: row-reverse;
+        }
+
+        /*子盒子的布局方向为反向水平的*/
+        .f-cr {
+            flex-direction: column-reverse;
+        }
+
+        /*子盒子的布局方向为反向垂直的*/
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        /*子盒子的排版为两端对齐*/
+        .justify-around {
+            justify-content: space-around;
+        }
+
+        /*子盒子的排版为环绕对齐*/
+        .justify-start {
+            justify-content: start;
+        }
+
+        /*子盒子的排版为左（上）对齐*/
+        .justify-end {
+            justify-content: flex-end;
+        }
+
+        /*子盒子的排版为右（下）对齐*/
+        .justify-center {
+            justify-content: center;
+        }
+
+        /*子盒子的排版为居中对齐*/
+        .flex-full {
+            flex: 1;
+        }
+
+        /*子盒子填充父盒子的空余空间*/
+        .align-start {
+            align-self: flex-start;
+        }
+
+        /*子盒子本身在父级元素中的排版为顶部排版*/
+        .align-end {
+            align-self: flex-end;
+        }
+
+        /*子盒子本身在父级元素中的排版为底部排版*/
+        .align-center {
+            align-self: center;
+        }
+
+        /*子盒子本身在父级元素中的排版为中部排版*/
+
+         .f{
+            height: 300px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="f d-f">
+        <div class="flex-full d-f f-c justify-between">
+            <section><img src="holder.js/100px100?random=yes&text=1" alt=""></section>
+            <section><img src="holder.js/100px100?random=yes&text=2" alt=""></section>
+        </div>
+        <div class="d-f justify-center f-c flex-full">
+            <section><img src="holder.js/100px100?random=yes&text=3" alt=""></section>
+        </div>
+        <div class="flex-full d-f f-c justify-between">
+            <section><img src="holder.js/100px100?random=yes&text=4" alt=""></section>
+            <section><img src="holder.js/100px100?random=yes&text=5" alt=""></section>
+        </div>
+    </div>
+    <script src="holder.min.js"></script>
+</body>
+
+</html>
