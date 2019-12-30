@@ -38,11 +38,11 @@
                         <video id="video_controller" src="" controls></video>
                     </div>
                     <ul>
-                        <li><a href="javascript:void(0)" onclick="play(1)"></a></li>
-                        <li><a href="javascript:void(0)" onclick="play(2)"></a></li>
-                        <li><a href="javascript:void(0)" onclick="play(3)"></a></li>
-                        <li><a href="javascript:void(0)" onclick="play(4)"></a></li>
-                        <li><a href="javascript:void(0)" onclick="play(5)"></a></li>
+                        <li><a href="javascript:void(0)" onclick="play_video(1)"></a></li>
+                        <li><a href="javascript:void(0)" onclick="play_video(2)"></a></li>
+                        <li><a href="javascript:void(0)" onclick="play_video(3)"></a></li>
+                        <li><a href="javascript:void(0)" onclick="play_video(4)"></a></li>
+                        <li><a href="javascript:void(0)" onclick="play_video(5)"></a></li>
                     </ul>
                 </section>
             </div>
@@ -51,7 +51,6 @@
     <script>
         function play_video(index){
 
-            console.log(img_holder);
 
             // 获取 img 对象
             let img_holder = document.getElementById('img_holder');
