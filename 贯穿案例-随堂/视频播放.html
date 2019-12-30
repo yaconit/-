@@ -50,6 +50,9 @@
     </div>
     <script>
         function play_video(index){
+
+            console.log(img_holder);
+
             // 获取 img 对象
             let img_holder = document.getElementById('img_holder');
             // 获取 img 的样式对象
@@ -60,7 +63,7 @@
             // 获取 video 对象
             let video_controller = document.getElementById('video_controller');
             // 获取 video 的样式对象
-            video_controller_style = video_controller.style;
+            let video_controller_style = video_controller.style;
             // 设置 video 的 display:block
             video_controller_style.display = "block";
 
