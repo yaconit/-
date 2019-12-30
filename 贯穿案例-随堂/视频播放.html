@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+
+    <link rel="stylesheet" href="./public/css/swiper.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1546975_v8d03k4nvg.css">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./public/css/component.css">
+    <link rel="stylesheet" href="./public/css/index.css">
+    <link rel="stylesheet" href="./public/css/nav1.css">
+</head>
+
+<body>
+   
+    <!-- 新闻资讯 -->
+    <div class="xwzx">
+        <div class="panel">
+            <div class="panel-header">
+                <h1>新闻资讯</h1>
+            </div>
+            <div class="panel-body">
+                <section></section>
+                <section>
+                    <div></div>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="video-img">
+                        <img id="img_holder" onclick="play_video(1)" src="./public/images/news_video_01.jpg" alt="">
+                        <video id="video_controller" src="" controls></video>
+                    </div>
+                    <ul>
+                        <li><a href="javascript:void(0)" onclick="play(1)"></a></li>
+                        <li><a href="javascript:void(0)" onclick="play(2)"></a></li>
+                        <li><a href="javascript:void(0)" onclick="play(3)"></a></li>
+                        <li><a href="javascript:void(0)" onclick="play(4)"></a></li>
+                        <li><a href="javascript:void(0)" onclick="play(5)"></a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script>
+        function play_video(index){
+            // 获取 img 对象
+            let img_holder = document.getElementById('img_holder');
+            // 获取 img 的样式对象
+            let img_holder_style = img_holder.style;
+            // 设置 img 的 display:none
+            img_holder_style.display = "none";
+
+            // 获取 video 对象
+            let video_controller = document.getElementById('video_controller');
+            // 获取 video 的样式对象
+            video_controller_style = video_controller.style;
+            // 设置 video 的 display:block
+            video_controller_style.display = "block";
+
+            // 设置 video 的 src 属性
+            video_controller.src = "./public/videos/"+index+".mp4";
+            // 让视频自动播放
+            video_controller.play();
+        }
+    </script>
+</body>
+
+
+</html>
