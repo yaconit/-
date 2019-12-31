@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1546975_4uxe7ijk0ku.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            background-color: #000;
+            width: 500px;
+            height: 300px;
+            align-self: center;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        section:hover img {
+            transform: scale(1.1);
+        }
+
+        video {
+            display: none;
+            width: 100%;
+        }
+
+        i.icon-shipin,
+        i.icon-zhongbo {
+            position: absolute;
+            top: calc(50% - 30px);
+            left: calc(50% - 30px);
+            font-size: 60px;
+            color: #0F0;
+            transition: all 0.6s;
+            z-index: 2;
+        }
+
+        div:hover i.icon-shipin {
+            color: #00F
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <section>
+            <img src="1.jpg">
+            <i class="iconfont icon-shipin" onclick="play()"></i>
+        </section>
+        <video src="" controls></video>
+    </div>
+    <script>
+        let img = document.getElementsByTagName('img')[0];
+        let video = document.getElementsByTagName('video')[0];
+        let i = document.getElementsByTagName('i')[0];
+        function play() {
+
+            video.style.display = "block";
+            i.style.display = "none";
+            img.style.display = "none";
+
+            video.src = "1.mp4";
+            video.play();
+        }
+
+        // 监听视频播放完毕
+        video.addEventListener("ended", function () {
+            i.setAttribute("class","iconfont icon-zhongbo");
+            i.style.display = "block";
+            img.style.display = "block";
+        });
+    </script>
+</body>
+
+</html>
