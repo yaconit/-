@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <table border="1">
+            <caption>新闻列表</caption>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="" id="all_checkbox" onchange="all_checked()"></th>
+                    <th>序号</th>
+                    <th>标题</th>
+                    <th>发表时间</th>
+                    <th>作者</th>
+                    <th>点击量</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" name="" id="" class="item_checkbox" onchange="item_checked()"></td>
+                    <td>1</td>
+                    <td>新闻1</td>
+                    <td>2019-10-10 22:10:20</td>
+                    <td>匿名</td>
+                    <td>1</td>
+                    <td>
+                        <button onclick="">查看</button>
+                        <button>修改</button>
+                        <button onclick="del_item(this)">删除</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id="" class="item_checkbox" onchange="item_checked()"></td>
+                    <td>2</td>
+                    <td>新闻2</td>
+                    <td>2019-10-10 22:10:20</td>
+                    <td>匿名</td>
+                    <td>10</td>
+                    <td>
+                        <button onclick="">查看</button>
+                        <button>修改</button>
+                        <button onclick="del_item(this)">删除</button onclick="">
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="text" name="" id="" placeholder="请输入标题"></td>
+                    <td><input type="text" name="" id="" placeholder="请输入日期"></td>
+                    <td>
+                        <select name="" id="">
+                            <option value="匿名">匿名</option>
+                            <option value="张三">张三</option>
+                            <option value="李四">李四</option>
+                            <option value="王五">王五</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="" id="" placeholder="点击量"></td>
+                    <td>
+                        <button>添加</button>
+                        <button>清空</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <footer>
+            <div>
+                <label for="">所选项操作： </label>
+                <select name="actions" id="" onchange="action(this.value)">
+                    <option value="0">请选择</option>
+                    <option value="1">删除</option>
+                    <option value="2">查看</option>
+                </select>
+            </div>
+            <div>
+                <a href="#">上一页</a>
+                <a href="#1">1</a>
+                <a href="#2">2</a>
+                <a href="#3">3</a>
+                <a href="#">下一页</a>
+                <label for="">每页显示：</label>
+                <select name="" id="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+                <label for="">条</label>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 弹出框 -->
+    <div class="alert">
+        <div class="alert-header">提示</div>
+        <div class="alert-body"></div>
+        <div class="alert-footer">
+            <button class="alert-button" onclick="alert_ok(this)">确定</button>
+        </div>
+    </div>
+
+    <script src="public.js"></script>
+</body>
+
+</html>`
