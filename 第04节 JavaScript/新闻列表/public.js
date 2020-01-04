@@ -44,6 +44,5 @@ function action(choose){
 function alert_ok(btn){
     btn.parentNode.parentNode.style.opacity=0
     let select = document.getElementsByName('actions')[0]
-    // select.options[0].selected = true
-    select.value=0
+    select.options[0].selected = true
 }
