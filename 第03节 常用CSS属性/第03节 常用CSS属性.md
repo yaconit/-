@@ -1181,3 +1181,32 @@ img{
     vertical-align:middle;
 }
 ```
+
+## 隔行变色
+```css
+/* 
+<table>
+    <tr>...</tr>
+    <tr>...</tr>
+    <tr>...</tr>
+</table>
+*/
+table tr:nth-child(odd){background-color:#f00}
+```
+
+## 元素块在页面居中（水平和垂直）
+```css
+/* 
+<body>
+    <div>...</div>
+</body>
+*/
+
+/* Flex方式实现 */
+html,body{height:100%}
+body{display:flex;justify-content:center;}
+div{align-self:center}
+
+/* 定位实现 */
+div{width:500px;height:300px;position:absolute;top:calc(50% - 150px);left:calc(50% - 250px)}
+```

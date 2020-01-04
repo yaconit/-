@@ -7,8 +7,25 @@
     <title>Document</title>
 </head>
 <body>
+    <button onclick="insert_item()">插入项</button>
+    <ul></ul>
+
     <script>
-        console.error(11);
+        function insert_item(){
+            let ul = document.getElementsByTagName('ul')[0];
+            
+            let li_1 = document.createElement('li')
+            let li_2 = document.createElement('li')
+            li_1.innerText = 'item'
+            li_2.innerText = 'item'
+
+            ul.appendChild(li_1)
+            ul.appendChild(li_2)
+
+            let li1 = '<li>newitem</li>'
+            let li2 = '<li>newitem</li>'
+            ul.innerHTML = li1 + li2
+        }
     </script>
 </body>
 </html
