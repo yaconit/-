@@ -48,11 +48,49 @@ function alert_ok(btn){
     select.options[0].selected = true
 }
 
+// 显示一条项目
 function show_item(tr){
-    
+    // 将 panels 显示出来
+    let panels = document.getElementsByClassName('panels')[0]
+    panels.style.display = 'flex'
+
+    // 创建 panel 并将 panel 插入到 panels
+    // 数据源：tr.querySelectorAll('td')
+    let panel = create_panel(tr.querySelectorAll('td'))
+    panels.appendChild(panel)
 }
 
+// 关闭panels
 function close_all(){
+    // 隐藏 panels
     let panels = document.getElementsByClassName('panels')[0]
     panels.style.display = 'none'
+
+    // 移除 panels 下面的所有 panel
+    for(let panel of panels.querySelectorAll('.panel')){
+        panel.remove()
+    }
+}
+
+// 创建面板
+function create_panel(params){
+    // 获取 template 模板中元素（字符串化）
+    let panel_template = document.getElementById('panel_template')
+    let str_panel = panel_template.innerHTML
+    
+    // 将 字符串化的 DOM 转成 DOM 对象
+    let div = document.createElement('div')
+    div.innerHTML = str_panel
+    let obj_panel = div.querySelector('.panel')
+
+    // 给 panel 赋值
+    let table = obj_panel.querySelector('table')
+    table.querySelector('tr:nth-child(1) td').innerText = params[1].innerText
+    table.querySelector('tr:nth-child(2) td').innerText = params[2].innerText
+    table.querySelector('tr:nth-child(3) td').innerText = params[3].innerText
+    table.querySelector('tr:nth-child(4) td').innerText = params[4].innerText
+    table.querySelector('tr:nth-child(5) td').innerText = params[5].innerText
+
+    // panel DOM对象
+    return obj_panel
 }
