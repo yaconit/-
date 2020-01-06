@@ -2,29 +2,29 @@
 
 body{display: flex;justify-content: center;}
 
-table{border-collapse: collapse;}
-table caption{font-size: 30px;font-weight: 600;padding: 20px 0;}
-table tr{transition: all 0.3s;}
-table tr td{text-align: center;height: 35px;}
-table tr td button{border:0;background-color: transparent;}
-table tr td input[type='text']{border:0;width: calc(100% - 10px);height: 100%;padding: 5px 0;outline: 0;}
-table tr td select{border:0;width: 100%;height: 100%;outline: 0;}
+.item_list table{border-collapse: collapse;}
+.item_list table caption{font-size: 30px;font-weight: 600;padding: 20px 0;}
+.item_list table tr{transition: all 0.3s;}
+.item_list table tr td{text-align: center;height: 35px;}
+.item_list table tr td button{border:0;background-color: transparent;}
+.item_list table tr td input[type='text']{border:0;width: calc(100% - 10px);height: 100%;padding: 5px 0;outline: 0;}
+.item_list table tr td select{border:0;width: 100%;height: 100%;outline: 0;}
 
-table thead tr th{background-color: #000;color:#fff;height: 35px;}
-table thead tr th:nth-child(1){width: 50px;}
-table thead tr th:nth-child(2){width: 50px;}
-table thead tr th:nth-child(3){width: 300px;}
-table thead tr th:nth-child(4){width: 300px;}
-table thead tr th:nth-child(5){width: 100px;}
-table thead tr th:nth-child(6){width: 100px;}
-table thead tr th:nth-child(7){width: 200px;}
+.item_list table thead tr th{background-color: #000;color:#fff;height: 35px;}
+.item_list table thead tr th:nth-child(1){width: 50px;}
+.item_list table thead tr th:nth-child(2){width: 50px;}
+.item_list table thead tr th:nth-child(3){width: 300px;}
+.item_list table thead tr th:nth-child(4){width: 300px;}
+.item_list table thead tr th:nth-child(5){width: 100px;}
+.item_list table thead tr th:nth-child(6){width: 100px;}
+.item_list table thead tr th:nth-child(7){width: 200px;}
 
-table tbody tr:nth-child(even){background-color: #eee;}
-table tbody tr:hover{background-color: #00f;color:#fff;}
-table tbody tr:hover td button{color:#fff;transition: all 0.3s;}
-table tbody tr:hover td button:hover{color:#ff0}
+.item_list table tbody tr:nth-child(even){background-color: #eee;}
+.item_list table tbody tr:hover{background-color: #00f;color:#fff;}
+.item_list table tbody tr:hover td button{color:#fff;transition: all 0.3s;}
+.item_list table tbody tr:hover td button:hover{color:#ff0}
 
-table tfoot tr td button:hover{color:#00f}
+.item_list table tfoot tr td button:hover{color:#00f}
 
 footer{margin-top:20px;display: flex;justify-content: space-between;}
 footer select{padding: 5px;vertical-align: middle;}
@@ -36,3 +36,17 @@ footer a:hover{color:#00f}
 .alert .alert-body{text-align: center;padding-top:20px}
 .alert .alert-footer{text-align: right;}
 .alert .alert-footer .alert-button{margin: 0 10px 10px 0;border:1px solid #000;background-color: #000;color:#fff;padding:5px 7px;cursor: pointer;}
+
+.panels{overflow: auto;padding: 30px;position: absolute;top: 0;left: 0;width: calc(100% - 60px);height: calc(100% - 60px);background-color: rgba(0,0,0,0.5);display: none;justify-content: center;flex-wrap: wrap;}
+.panels .close_all{position: absolute;right: 10px;top: 10px;border: 0;outline: 0;background-color: transparent;color:#fff}
+.panels .close_all:hover{text-decoration: underline;}
+.panels .panel{display: flex;flex-direction: column;justify-content: space-between;width: 400px;height: 300px;background-color: #fff;align-self: center;margin: 5px;}
+.panels .panel .panel-header{background-color: #000;color:#fff;padding: 10px;border:1px solid #000;}
+.panels .panel .panel-header button{float: right;background-color: transparent;border:0;outline: 0;color:#fff;}
+.panels .panel .panel-header button:hover{text-decoration: underline;cursor: pointer;}
+.panels .panel .panel-body{flex:1;border-left:1px solid #000;border-right: 1px solid #000;padding:10px}
+.panels .panel .panel-body table{width: 100%;height: 100%;}
+.panels .panel .panel-body table tr th{text-align: right;}
+.panels .panel .panel-footer{text-align: center;padding:10px 0;border:1px solid #000}
+.panels .panel .panel-footer button{border:0;outline: 0;background-color: #000;color:#fff;padding: 3px 5px;}
+.panels .panel .panel-footer button:hover{color:#00f}

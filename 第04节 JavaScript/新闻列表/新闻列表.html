@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div>
+    <div class="item_list">
         <table border="1">
             <caption>新闻列表</caption>
             <thead>
@@ -33,7 +33,7 @@
                     <td>匿名</td>
                     <td>1</td>
                     <td>
-                        <button onclick="">查看</button>
+                        <button onclick="show_item(this.parentNode.parentNode)">查看</button>
                         <button>修改</button>
                         <button onclick="del_item(this)">删除</button>
                     </td>
@@ -46,7 +46,7 @@
                     <td>匿名</td>
                     <td>10</td>
                     <td>
-                        <button onclick="">查看</button>
+                        <button  onclick="show_item(this.parentNode.parentNode)">查看</button>
                         <button>修改</button>
                         <button onclick="del_item(this)">删除</button onclick="">
                     </td>
@@ -105,6 +105,45 @@
         <div class="alert-body"></div>
         <div class="alert-footer">
             <button class="alert-button" onclick="alert_ok(this)">确定</button>
+        </div>
+    </div>
+
+    <!-- 面板 -->
+    <div class="panels">
+        <button class="close_all" onclick="close_all()">关闭所有</button>
+        <div class="panel">
+            <div class="panel-header">
+                <span>详情查看</span>
+                <button>关闭</button>
+            </div>
+            <div class="panel-body">
+                <table>
+                    <tr>
+                        <th>序号：</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>标题：</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>发表时间：</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>作者：</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>点击量：</th>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <button>修改</button>
+                <button>删除</button>
+            </div>
         </div>
     </div>
 
