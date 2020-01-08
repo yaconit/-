@@ -1,0 +1,13 @@
+*{margin: 0;padding: 0;}
+ul,li{list-style: none;}
+
+ul{width: 1000px;margin: 0 auto;display: flex;flex-wrap: wrap;}
+ul li{width: 312px;height: 170px;border-radius: 10px;overflow: hidden;position: relative;margin: 5px;}
+ul li h3{background-color: rgba(255,255,255,0.5);color:#000;position: absolute;left: 0;bottom: 0;width: calc(100% - 10px);line-height: 40px;padding-left:10px;font-size: 14px;}
+ul li i{position: absolute;top:10px;right: 10px;color:#fff}
+ul li i:hover{cursor: pointer;}
+
+.add_img{width: 40px;height: 40px;position: fixed;top:calc(50% - 20px);left: 0;overflow: hidden;border:1px solid #000;background-color: #fff;outline: none;transition: all 0.6s;white-space: nowrap;line-height: 40px;}
+.add_img i{display: inline-block;width: 40px;height: 40px;;}
+.add_img:hover{width: 130px;background-color: #000;color:#fff}
+.add_img:active{color:#00f}
