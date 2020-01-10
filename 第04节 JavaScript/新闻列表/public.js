@@ -237,6 +237,13 @@ function edit_text(td) {
 
 // 面板移动
 function move_panel(event,panel){
+    // 将所有的 .panel 的 z 轴设为1
+    for(let p of panel.parentNode.querySelectorAll('.panel')){
+        p.style.zIndex = 1
+    }
+    // 将点击的 .panel 的 z 轴设为999
+    panel.style.zIndex = 999
+
     // 鼠标按下时的坐标
     let down_x = event.x, down_y = event.y
     // 鼠标移动时的坐标
@@ -250,7 +257,7 @@ function move_panel(event,panel){
     top = top ? parseFloat(top.replace('px','')) : 0
 
     // 鼠标移动事件
-    panel.onmousemove = function(event){
+    panel.parentNode.onmousemove = function(event){
         if(flag){
             move_x = event.x
             move_y = event.y
@@ -260,7 +267,7 @@ function move_panel(event,panel){
     }
 
     // 鼠标弹起事件
-    panel.onmouseup = function(){
+    panel.parentNode.onmouseup = function(){
         flag = false
     }
 }
