@@ -234,3 +234,33 @@ function edit_text(td) {
     }
 
 }
+
+// 面板移动
+function move_panel(event,panel){
+    // 鼠标按下时的坐标
+    let down_x = event.x, down_y = event.y
+    // 鼠标移动时的坐标
+    let move_x,move_y
+    // 鼠标移动后所产生的距离差
+    let left = panel.style.left,top = panel.style.top
+    // 是否移动
+    let flag = true
+    
+    left = left ? parseFloat(left.replace('px','')) : 0
+    top = top ? parseFloat(top.replace('px','')) : 0
+
+    // 鼠标移动事件
+    panel.onmousemove = function(event){
+        if(flag){
+            move_x = event.x
+            move_y = event.y
+            panel.style.left = move_x - down_x + left + 'px'
+            panel.style.top = move_y - down_y + top + 'px'
+        }
+    }
+
+    // 鼠标弹起事件
+    panel.onmouseup = function(){
+        flag = false
+    }
+}

@@ -116,7 +116,7 @@
     <!-- 面板模板 -->
     <template id="panel_template">
         <div class="panel">
-            <div class="panel-header">
+            <div class="panel-header" onmousedown="move_panel(event,this.parentNode)">
                 <span>详情查看</span>
                 <button onclick="close_panel(this)">关闭</button>
             </div>
