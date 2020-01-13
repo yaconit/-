@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="car">
+        <section class="alert">成功删除 1 件宝贝，如有误，可撤销本次删除</section>
+
+        <div class="shop_list"></div>
+
+        <section class="footer">
+            <ul>
+                <li>
+                    <input type="checkbox"> <label>全选</label>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">删除</a>
+                </li>
+            </ul>
+            <ul>
+                <li>已选商品 <span>0</span> 件</li>
+                <li>合计（不含运费）：<span>0.00</span></li>
+                <li><button>结 算</button></li>
+            </ul>
+        </section>
+    </div>
+
+    <template id="shop">
+        <section class="shop">
+            <header>
+                <input type="checkbox">
+                <label>店铺：<span></span></label>
+            </header>
+            <table></table>
+        </section>
+    </template>
+    <template id="good">
+        <tr>
+            <td><input type="checkbox"></td>
+            <td><img src="" alt=""></td>
+            <td></td>
+            <td>
+                <del>￥<span></span></del><br />
+                <strong>￥<span></span></strong>
+            </td>
+            <td>
+                <div class="input-group">
+                    <a href="javascript:void(0)">-</a>
+                    <input type="text" value="1">
+                    <a href="javascript:void(0)">+</a>
+                </div>
+            </td>
+            <td>￥<strong></strong></td>
+            <td><a href="javascript:void(0)">删除</a></td>
+        </tr>
+    </template>
+    <script src="jquery.min.js"></script>
+    <script src="public.js"></script>
+</body>
+
+</html>
