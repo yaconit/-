@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!-- 购物车主界面 -->
     <div class="car">
         <section class="alert">成功删除 1 件宝贝，如有误，可撤销本次删除</section>
 
@@ -32,18 +33,21 @@
         </section>
     </div>
 
+    <!-- 店铺模板 -->
     <template id="shop">
         <section class="shop">
             <header>
-                <input type="checkbox">
+                <input type="checkbox" onchange="shop_good_select_all(this)">
                 <label>店铺：<span></span></label>
             </header>
             <table></table>
         </section>
     </template>
+
+    <!-- 商品模板 -->
     <template id="good">
         <tr>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" onchange="good_shop_select_all(this)"></td>
             <td><img src="" alt=""></td>
             <td></td>
             <td>
@@ -61,8 +65,103 @@
             <td><a href="javascript:void(0)">删除</a></td>
         </tr>
     </template>
+
     <script src="jquery.min.js"></script>
+    <!-- 公共 -->
     <script src="public.js"></script>
+    <script>
+        // 页面加载完成后，获取数据
+        $(function () {
+            $.getJSON('data/car.json', function (res) {
+                // 获取店铺模板
+                let shop_template = $($('#shop').html())
+                // 获取商品模板
+                let good_template = $($('#good').html())
+
+                for (let sp of res) {
+                    // 从店铺模板中复制一份店铺DOM
+                    let shop = shop_template.clone()
+
+                    // 给店铺赋值
+                    shop.find('header label span').text(sp.shop_name)
+
+                    for(let gd of sp.buy){
+                        let good = good_template.clone()
+                        good.find('td:nth-child(2) img')
+                        good.find('td').eq(1).find('img').attr('src','images/'+gd.img)
+                        good.find('td').eq(2).text(gd.title)
+                        good.find('td').eq(3).find('del span').text(gd.original)
+                        good.find('td').eq(3).find('strong span').text(gd.price)
+                        good.find('td').eq(4).find('input').val(gd.num)
+                        good.find('td').eq(5).find('strong').text(gd.num * gd.price)
+                        shop.find('table').append(good)
+                    }
+                    
+                    // 将店铺插入到店铺列表
+                    $('.shop_list').append(shop)
+                }
+            })
+        })
+    
+        /**
+         * 选中店铺下的所有商品
+         */
+        function shop_good_select_all(checkbox){
+            let shop = $(checkbox).parents('.shop')
+            let checkboxes = shop.find('table tr td:nth-child(1) input[type="checkbox"]')
+            for(let i in checkboxes){
+                checkboxes[i].checked = checkbox.checked
+            }
+
+            // 是否选中全选
+            $('.footer [type="checkbox"]')[0].checked = check_shop_checked()
+        }
+    
+        /**
+         * 当店铺下的所有商品都被选中时，则选中店铺
+         */
+        function good_shop_select_all(checkbox){
+            let shop = $(checkbox).parents('.shop')
+            let tr_checkboxes = shop.find('table tr td [type="checkbox"]')
+            let shop_checkbox = shop.find('header input')
+
+            console.log(tr_checkboxes)
+            
+            console.log(tr_checkboxes[0])
+            let flag = true
+            for(let checkbox of tr_checkboxes){
+                if(!checkbox.checked){
+                    flag = false
+                    break
+                }
+            }
+            shop_checkbox[0].checked = flag
+
+            // 是否选中全选
+            $('.footer [type="checkbox"]')[0].checked = check_shop_checked()
+        }
+    
+        // 点击全选复选框
+        $('.footer [type="checkbox"]').change(function(){
+            for(let checkbox of $('[type="checkbox"]')){
+                checkbox.checked = this.checked
+            }
+        })
+
+        /**
+         * 检测所有的店铺复选框是否选中
+         */
+        function check_shop_checked(){
+            let flag = true
+            for(let checkbox of $('.shop header [type="checkbox"]')){
+                if(!checkbox.checked){
+                    flag = false
+                    break
+                }
+            }
+            return flag
+        }
+    </script>
 </body>
 
 </html>
