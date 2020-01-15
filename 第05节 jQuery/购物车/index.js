@@ -49,6 +49,8 @@ function shop_good_select_all(checkbox){
     total_price()
     // 统计件数
     total_number()
+    // 启用结算
+    submit_enabled()
 }
 
 /**
@@ -74,6 +76,8 @@ function good_shop_select_all(checkbox){
     total_price()
     // 统计件数
     total_number()
+    // 启用结算
+    submit_enabled()
 }
 
 /**
@@ -88,6 +92,8 @@ $('.footer [type="checkbox"]').change(function(){
     total_price()
     // 统计件数
     total_number()
+    // 启用结算
+    submit_enabled()
 })
 
 /**
@@ -141,7 +147,7 @@ function sub(a){
 }
 
 /**
- * 小节
+ * 小计
  * @param tr 要进行小计的行
  * @param num 商品购买数量
  */
@@ -162,7 +168,7 @@ function total_price(){
     prices.each(function(){
         total += parseFloat($(this).text())
     })
-    $('.all_total_price').text(total)
+    $('.all_total_price').text(total.toFixed(2))
 }
 
 /**
@@ -170,4 +176,33 @@ function total_price(){
  */
 function total_number(){
     $('.total_number').text($('tr :checked').length)
+}
+
+/**
+ * 手动输入购买数量
+ */
+function input_change(input){
+    let tr = $(input).parents('tr')
+    let num = $(input).val()
+    if(num <= 0){
+        num = 0
+        $(input).val(num)
+    }
+    // 计算小计
+    good_total_price(tr,num)
+    // 计算总价
+    total_price()
+}
+
+/**
+ * 启用结算
+ */
+function submit_enabled(){
+    if($('tr :checked').length > 0){
+        $('.footer button').addClass('enabled')
+        $('.footer button').removeAttr('disabled')
+    }else{
+        $('.footer button').removeClass('enabled')
+        $('.footer button').attr('disabled','disabled')
+    }
 }

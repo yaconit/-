@@ -28,7 +28,7 @@
             <ul>
                 <li>已选商品 <span class="total_number">0</span> 件</li>
                 <li>合计（不含运费）：<span class="all_total_price">0.00</span></li>
-                <li><button>结 算</button></li>
+                <li><button disabled>结 算</button></li>
             </ul>
         </section>
     </div>
@@ -57,7 +57,7 @@
             <td>
                 <div class="input-group">
                     <a href="javascript:void(0)" onclick="sub(this)">-</a>
-                    <input type="text" value="1">
+                    <input type="text" value="1" onblur="input_change(this)">
                     <a href="javascript:void(0)" onclick="add(this)">+</a>
                 </div>
             </td>
