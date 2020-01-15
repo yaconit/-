@@ -217,7 +217,10 @@ $('.shop_list').on('click','.del-item',function(){
     // 获取 店铺 DOM
     let shop = $(this).parents('.shop')
     // 删除 当前行
-    $(this).parents('tr').remove()
+    let del_tr = $(this).parents('tr').remove()
+
+    localStorage.setItem('del_tr',del_tr[0].outerHTML)
+    localStorage.setItem('shop_index',shop.index())
 
     // 判断 店铺 中是否还有 行
     if(!shop.find('tr').length){
@@ -231,6 +234,7 @@ $('.shop_list').on('click','.del-item',function(){
     total_number()
     // 是否启用结算
     submit_enabled()
+
 })
 
 /**
@@ -253,4 +257,13 @@ $('.del-selected').click(function(){
     total_number()
     // 是否启用结算
     submit_enabled()
+})
+
+/**
+ * 撤销最近一次的删除
+ */
+$('.revoke-del').click(function(){
+    let tr = $(localStorage.getItem('del_tr'))
+    let shop_index = localStorage.getItem('shop_index')
+    $('.shop').eq(shop_index).find('table').append(tr)
 })
