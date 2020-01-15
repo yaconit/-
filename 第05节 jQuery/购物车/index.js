@@ -101,6 +101,9 @@ $('.footer [type="checkbox"]').change(function(){
  */
 function check_shop_checked(){
     let flag = true
+    if($('.shop').length == 0){
+        return false
+    }
     for(let checkbox of $('.shop header [type="checkbox"]')){
         if(!checkbox.checked){
             flag = false
@@ -206,3 +209,48 @@ function submit_enabled(){
         $('.footer button').attr('disabled','disabled')
     }
 }
+
+/**
+ * 删除单个商品
+ */
+$('.shop_list').on('click','.del-item',function(){
+    // 获取 店铺 DOM
+    let shop = $(this).parents('.shop')
+    // 删除 当前行
+    $(this).parents('tr').remove()
+
+    // 判断 店铺 中是否还有 行
+    if(!shop.find('tr').length){
+        shop.remove()
+    }
+
+    $('.del_number').text(1)
+    // 计算总价
+    total_price()
+    // 计算总件数
+    total_number()
+    // 是否启用结算
+    submit_enabled()
+})
+
+/**
+ * 删除选择的商品
+ */
+$('.del-selected').click(function(){
+    $('.del_number').text($('tr :checked').length)
+
+    $('tr :checked').each(function(){
+        let shop = $(this).parents('.shop')
+        $(this).parents('tr').remove()
+        if(!shop.find('tr').length){
+            shop.remove()
+        }
+    })
+    $('.footer input[type="checkbox"]')[0].checked = check_shop_checked()
+    // 计算总价
+    total_price()
+    // 计算总件数
+    total_number()
+    // 是否启用结算
+    submit_enabled()
+})
